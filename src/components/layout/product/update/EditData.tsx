@@ -50,11 +50,21 @@ const EditProduct = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("image", { required: true })} />
-      <input {...register("name", { required: true })} />
-      <input type="number" {...register("price", { required: true })} />
-      <input {...register("category", { required: true })} />
-      <textarea {...register("description", { required: true })} />
+      <input {...register("image", { required: true })} placeholder="image" />
+      <input {...register("name", { required: true })} placeholder="name" />
+      <input
+        type="number"
+        {...register("price", { required: true })}
+        placeholder="number"
+      />
+      <input
+        {...register("category", { required: true })}
+        placeholder="category"
+      />
+      <textarea
+        {...register("description", { required: true })}
+        placeholder="description"
+      />
       <button type="submit">Save</button>
     </form>
   );

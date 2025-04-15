@@ -1,3 +1,4 @@
+import DetailsProduct from "../components/layout/product/details/DetailsProduct";
 import EditData from "../components/layout/product/update/EditData";
 import AdminPage from "../components/page/AdminPage";
 import HomePage from "../components/page/HomePage";
@@ -28,5 +29,9 @@ export const links = [
   {
     link: "/edit/:id",
     el: <EditData />,
+  },
+  {
+    link: "/details",
+    el: <DetailsProduct />,
   },
 ];
