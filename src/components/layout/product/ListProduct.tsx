@@ -1,14 +1,15 @@
 import axios from "axios";
 import { addData, searchData } from "../../../store/slices/ItemSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/Store";
-
 import scss from "./ListProduct.module.scss";
 import { useEffect } from "react";
+
+import { useNavigate } from "react-router-dom";
 
 const ListProduct = () => {
   const API = import.meta.env.VITE_API;
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   const { data, search } = useAppSelector((s) => s.data);
 
   console.log(data, "data");
@@ -38,6 +39,7 @@ const ListProduct = () => {
     dispatch(searchData(result));
   }
   //>>>>>>>>>>>>>
+
   useEffect(() => {
     readData();
   }, []);
@@ -84,7 +86,9 @@ const ListProduct = () => {
                 <button>Add</button>
                 <div className={scss.btns}>
                   <button onClick={() => deleteData(item._id)}>delete</button>
-                  <button>edit</button>
+                  <button onClick={() => navigate(`/edit/${item._id}`)}>
+                    edit
+                  </button>
                 </div>
               </div>
             ))}
