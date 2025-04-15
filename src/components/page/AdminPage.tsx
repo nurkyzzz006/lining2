@@ -1,4 +1,3 @@
-
 import { FC, useEffect } from "react";
 import scss from "./AdminPage.module.scss";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -10,6 +9,7 @@ interface IForm {
   image: string;
   name: string;
   price: number;
+  category: string;
   description: string;
 }
 
@@ -32,6 +32,7 @@ const AdminPage: FC = () => {
       image: data.image,
       name: data.name,
       price: data.price,
+      category: data.category,
       description: data.description,
     };
     try {
@@ -48,7 +49,7 @@ const AdminPage: FC = () => {
     <section className={scss.AdminPage}>
       <div className="container">
         <div className={scss.content}>
-        <div className={scss.inputs}>
+          <div className={scss.inputs}>
             <form onSubmit={handleSubmit(createData)}>
               <input
                 {...register("image", { required: true })}
@@ -64,6 +65,11 @@ const AdminPage: FC = () => {
                 {...register("price", { required: true })}
                 type="number"
                 placeholder="price"
+              />
+              <input
+                {...register("category", { required: true })}
+                type="text"
+                placeholder="category"
               />
               <input
                 {...register("description", { required: true })}

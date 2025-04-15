@@ -8,6 +8,7 @@ interface IData {
     name: string;
     price: string;
     updatedAt: string;
+    category: string;
     _id: number;
   }[];
   search: {
@@ -16,6 +17,7 @@ interface IData {
     image: string;
     name: string;
     price: string;
+    category: string;
     updatedAt: string;
     _id: number;
   }[];

@@ -79,6 +79,7 @@ const ListProduct = () => {
                 <div className={scss.texts}>
                   <h1>{item.name}</h1>
                   <p>{item.price}$</p>
+                  <h6>{item.category}</h6>
                 </div>
                 <button>Add</button>
                 <div className={scss.btns}>
