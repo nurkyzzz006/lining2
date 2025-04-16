@@ -1,13 +1,24 @@
-import { links } from "../../../constants/Link";
-import { SiLining } from "react-icons/si";
+import { FC } from "react";
 import scss from "./Header.module.scss";
+
 import { Link } from "react-router-dom";
-const Header = () => {
+import { links } from "../../../constants/Link";
+
+const Header: FC = () => {
   return (
-    <div id={scss.Header}>
+    <section className={scss.Header}>
       <div className="container">
         <div className={scss.content}>
-          <SiLining className={scss.icons} />
+          <img
+            src="https://lining-sport.ru/local/templates/main/assets/images/logo.svg"
+            alt="LiningLogo"
+          />
+          <div className={scss.category}>
+            <p>Men</p>
+            <p>Women</p>
+            <p>Childrens</p>
+            <p>Accessories</p>
+          </div>
           <div className={scss.block}>
             {links.map((item, index) => (
               <nav key={index}>
@@ -19,7 +30,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
+
 export default Header;
