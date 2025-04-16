@@ -13,12 +13,7 @@ const Header: FC = () => {
             src="https://lining-sport.ru/local/templates/main/assets/images/logo.svg"
             alt="LiningLogo"
           />
-          <div className={scss.category}>
-            <p>Men</p>
-            <p>Women</p>
-            <p>Childrens</p>
-            <p>Accessories</p>
-          </div>
+
           <div className={scss.block}>
             {links.map((item, index) => (
               <nav key={index}>
