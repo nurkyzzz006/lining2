@@ -3,7 +3,6 @@ import { addData, searchData } from "../../../store/slices/ItemSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/Store";
 import scss from "./ListProduct.module.scss";
 import { useEffect } from "react";
-
 import { useNavigate } from "react-router-dom";
 
 const ListProduct = () => {
@@ -76,7 +75,11 @@ const ListProduct = () => {
           </div>
           <div className={scss.blocks}>
             {search.map((item, index) => (
-              <div className={scss.block} key={index}>
+              <div
+                onClick={() => navigate(`/details/${item._id}`)}
+                className={scss.block}
+                key={index}
+              >
                 <img src={item.image} alt={item.name} />
                 <div className={scss.texts}>
                   <h1>{item.name}</h1>

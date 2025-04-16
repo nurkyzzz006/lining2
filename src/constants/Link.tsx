@@ -1,9 +1,9 @@
-import DetailsProduct from "../components/layout/product/details/DetailsProduct";
 import EditData from "../components/layout/product/update/EditData";
 import AdminPage from "../components/page/AdminPage";
 import HomePage from "../components/page/HomePage";
 import ProductPage from "../components/page/ProductPage";
 import SignPage from "../components/page/SignPage";
+import DetailsPage from "../components/page/details/DetailsPage";
 
 export const links = [
   {
@@ -31,7 +31,7 @@ export const links = [
     el: <EditData />,
   },
   {
-    link: "/details",
-    el: <DetailsProduct />,
+    link: "/details/:id",
+    el: <DetailsPage />,
   },
 ];
