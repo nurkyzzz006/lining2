@@ -1,0 +1,34 @@
+#Section {
+  background: #300104;
+  box-shadow: inset;
+  color: rgba(255, 255, 255, 0.758);
+  font-family: sans-serif;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .rigth_side {
+    background-image: url(https://lining.center/upload/iblock/f9f/p0d3753pehp2yll04kmcv3djdt9onmyr.png);
+    background-size: cover;
+    width: 100%;
+    max-width: 500px;
+    height: 90vh;
+  }
+  .left_side {
+    width: 500px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h1 {
+        line-height: 30px;
+      span {
+        color: rgb(242, 99, 99);
+      }
+    }
+    p {
+      line-height: 27px;
+    }
+  }
+}
