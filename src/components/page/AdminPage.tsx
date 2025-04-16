@@ -47,8 +47,9 @@ const AdminPage: FC = () => {
   }, []);
   return (
     <section className={scss.AdminPage}>
-      <div className="container">
+      <div className={scss.container}>
         <div className={scss.content}>
+          <h1>CREATE PRODUCT</h1>
           <div className={scss.inputs}>
             <form onSubmit={handleSubmit(createData)}>
               <input
