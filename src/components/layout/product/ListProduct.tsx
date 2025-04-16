@@ -116,12 +116,12 @@ const ListProduct = () => {
           </div>
           <div className={scss.blocks}>
             {search.map((item, index) => (
-              <div
-                onClick={() => navigate(`/details/${item._id}`)}
-                className={scss.block}
-                key={index}
-              >
-                <img src={item.image} alt={item.name} />
+              <div className={scss.block} key={index}>
+                <img
+                  onClick={() => navigate(`/details/${item._id}`)}
+                  src={item.image}
+                  alt={item.name}
+                />
                 <div className={scss.texts}>
                   <h1>{item.name}</h1>
                   <p>{item.price}$</p>
