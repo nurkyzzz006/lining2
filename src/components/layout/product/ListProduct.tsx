@@ -2,7 +2,7 @@ import axios from "axios";
 import { addData, searchData } from "../../../store/slices/ItemSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/Store";
 import scss from "./ListProduct.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ListProduct = () => {
@@ -10,6 +10,8 @@ const ListProduct = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { data, search } = useAppSelector((s) => s.data);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
 
   console.log(data, "data");
 
@@ -31,11 +33,23 @@ const ListProduct = () => {
   }
 
   //------search>
-  function handleSearch(formData: string) {
-    let result = data.filter((item) =>
-      item.name.toLowerCase().includes(formData.toLowerCase())
-    );
+  function filterData(query: string, category: string) {
+    let result = data.filter((item) => {
+      const matchName = item.name.toLowerCase().includes(query.toLowerCase());
+      const matchCategory = category ? item.category === category : true;
+      return matchName && matchCategory;
+    });
     dispatch(searchData(result));
+  }
+
+  function handleSearch(value: string) {
+    setQuery(value);
+    filterData(value, category);
+  }
+
+  function handleCategory(value: string) {
+    setCategory(value);
+    filterData(query, value);
   }
   //>>>>>>>>>>>>>
 
@@ -49,13 +63,40 @@ const ListProduct = () => {
           <div className={scss.prodHeader}>
             <div className={scss.filter}>
               <p>
-                <input type="radio" /> foots
+                <input
+                  type="radio"
+                  name="category"
+                  onChange={() => handleCategory("")}
+                  checked={category === ""}
+                />{" "}
+                All
               </p>
               <p>
-                <input type="radio" /> clothes
+                <input
+                  type="radio"
+                  name="category"
+                  onChange={() => handleCategory("foots")}
+                  checked={category === "foots"}
+                />{" "}
+                foots
               </p>
               <p>
-                <input type="radio" /> t-shirt
+                <input
+                  type="radio"
+                  name="category"
+                  onChange={() => handleCategory("clothes")}
+                  checked={category === "clothes"}
+                />{" "}
+                clothes
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  name="category"
+                  onChange={() => handleCategory("t-shirt")}
+                  checked={category === "t-shirt"}
+                />{" "}
+                t-shirt
               </p>
             </div>
             <div className={scss.search}>
