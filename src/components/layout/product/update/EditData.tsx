@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../../../../store/Store";
 import { editData } from "../../../../store/slices/ItemSlice";
+import scss from "./EditData.module.scss";
 
 interface IForm {
   image: string;
@@ -49,24 +50,34 @@ const EditProduct = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("image", { required: true })} placeholder="image" />
-      <input {...register("name", { required: true })} placeholder="name" />
-      <input
-        type="number"
-        {...register("price", { required: true })}
-        placeholder="number"
-      />
-      <input
-        {...register("category", { required: true })}
-        placeholder="category"
-      />
-      <textarea
-        {...register("description", { required: true })}
-        placeholder="description"
-      />
-      <button type="submit">Save</button>
-    </form>
+    <div className={scss.EditData}>
+      <div className="container">
+      <div className={scss.inputs}>
+        <h2>Edit</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            {...register("image", { required: true })}
+            placeholder="image"
+          />
+          <input {...register("name", { required: true })} placeholder="name" />
+          <input
+            type="number"
+            {...register("price", { required: true })}
+            placeholder="number"
+          />
+          <input
+            {...register("category", { required: true })}
+            placeholder="category"
+          />
+          <textarea
+            {...register("description", { required: true })}
+            placeholder="description"
+          />
+          <button type="submit">Save</button>
+        </form>
+      </div>
+      </div>
+    </div>
   );
 };
 
